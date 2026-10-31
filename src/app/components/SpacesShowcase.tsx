@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import type { Project } from "@/data/projects";
+import { publicAssetUrl } from "@/data/images";
 import CloudinaryImage from "./CloudinaryImage";
 import NonHeroProjectImage from "./NonHeroProjectImage";
 
@@ -63,7 +64,7 @@ export default function SpacesShowcase({ projects }: SpacesShowcaseProps) {
       const src = projects[idx]?.heroImage;
       if (src && (src.startsWith("http") || src.startsWith("/"))) {
         const img = new Image();
-        img.src = src;
+        img.src = publicAssetUrl(src);
       }
     });
   }, [activeIndex, projects]);
@@ -253,24 +254,15 @@ export default function SpacesShowcase({ projects }: SpacesShowcaseProps) {
                 willChange: "opacity, transform",
               }}
             >
-              {(project.heroImage.startsWith("http") || project.heroImage.startsWith("/")) ? (
-                <img
-                  src={project.heroImage}
-                  alt={project.title}
-                  className="w-full h-full object-cover object-center rounded-none"
-                  style={{ borderRadius: "0px" }}
-                />
-              ) : (
-                <CloudinaryImage
-                  src={project.heroImage}
-                  alt={project.title}
-                  fill
-                  priority={isInitial}
-                  sizes="100vw"
-                  className="w-full h-full object-cover object-center rounded-none"
-                  style={{ borderRadius: "0px" }}
-                />
-              )}
+              <CloudinaryImage
+                src={project.heroImage}
+                alt={project.title}
+                fill
+                priority={isInitial}
+                sizes="100vw"
+                className="w-full h-full object-cover object-center rounded-none"
+                style={{ borderRadius: "0px" }}
+              />
             </div>
           );
         })}

@@ -2,16 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
-import CloudinaryImage from "../components/CloudinaryImage";
 import LifeAtDecaves from "../components/LifeAtDecaves";
 import Image from "next/image";
-import { siteImage } from "@/data/images";
 
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,8 +22,6 @@ export default function AboutPage() {
   const philosophyRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-
-  const [hoveredPrinciple, setHoveredPrinciple] = useState<number | null>(null);
 
   // Contact form state & validation
   const [formValues, setFormValues] = useState({
@@ -309,8 +305,6 @@ Thank you.`;
 
     return () => ctx.revert();
   }, []);
-
-  const principles = ["Context", "Material", "Light", "Experience"];
 
   return (
     <>

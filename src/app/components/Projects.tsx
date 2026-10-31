@@ -6,7 +6,6 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CloudinaryImage from "./CloudinaryImage";
-import { siteImage } from "@/data/images";
 
 const projects = [
   {
@@ -108,25 +107,15 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         ref={wrapperRef}
         className="relative w-full h-full flex items-center justify-center overflow-hidden bg-[#F5F3EE]"
       >
-        {project.image.startsWith("http") || project.image.startsWith("/") ? (
-          <img
-            ref={imgRef as any}
-            src={project.image}
-            alt={project.title}
-            className="absolute inset-0 h-[120%] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            loading="lazy"
-          />
-        ) : (
-          <CloudinaryImage
-            ref={imgRef}
-            src={project.image}
-            alt={project.title}
-            width={1920}
-            height={1080}
-            className="h-[120%] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-            loading="lazy"
-          />
-        )}
+        <CloudinaryImage
+          ref={imgRef}
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="100vw"
+          className="h-[120%] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          loading="lazy"
+        />
       </div>
 
       <Container {...containerProps} className="group absolute inset-0 z-10 flex flex-col justify-end">

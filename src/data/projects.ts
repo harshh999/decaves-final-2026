@@ -5,8 +5,6 @@ export interface Curation {
   description: string;
 }
 
-import { toPublicId } from "@/data/images";
-
 export interface Project {
   slug: string;
   title: string;
@@ -21,18 +19,6 @@ export interface Project {
   isPlaceholder?: boolean;
 }
 
-function cld(...segments: string[]) {
-  const root = segments.slice(0, -1).join("/");
-  const file = segments[segments.length - 1];
-  return toPublicId(`${root}/${file}`);
-}
-
-function rootFile(file: string) {
-  return toPublicId(file);
-}
-
-const PLACEHOLDER_IMAGE = "floatingboxes2_wpxpwj";
-
 const projectData: Project[] = [
 // 01. Tathastu, Woods Ville (Existing)
   {
@@ -42,7 +28,7 @@ const projectData: Project[] = [
     completion: "2025",
     heroImage: "/Project 1 /Screenshot 2026-09-16 at 9.06.45 PM.png",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "Tathastu is shaped as a calm residential retreat, balancing clear circulation with moments of pause. A restrained palette and carefully framed light bring softness to the architecture, while the connected interiors support an everyday rhythm that feels composed, intimate, and quietly generous.",
     interiorImages: [
       "/Project 1 /Screenshot 2026-09-16 at 9.10.50 PM.png",
       "/Project 1 /Screenshot 2026-09-16 at 9.09.00 PM.png",
@@ -93,7 +79,7 @@ const projectData: Project[] = [
     completion: "2025",
     heroImage: "/Project 2/Screenshot 2026-09-17 at 11.37.35 AM.png",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "The Hanging Pyramids explores a residence through strong geometric gestures and layered spatial volumes. Its interiors use contrast, repetition, and carefully controlled openings to create a home that feels sculptural without losing warmth, with movement through the plan becoming part of the experience.",
     interiorImages: [
       "/Project 2/Screenshot 2026-09-17 at 11.38.06 AM.png",
       "/Project 2/Screenshot 2026-09-17 at 11.43.38 AM.png",
@@ -160,7 +146,7 @@ const projectData: Project[] = [
     status: "Ongoing",
     heroImage: "/Project 3 /IMG_4858.png",
     description:
-      "A commercial hospitality space crafted with intention and character. Every detail—from the material palette to the ambient illumination—is designed to create an inviting, memorable environment.",
+      "Cafe Lemon is conceived as an atmospheric hospitality interior with a lively, approachable character. The design brings together tactile surfaces, focused illumination, and a sequence of intimate views, creating a setting that supports both the energy of the café and the ease of lingering.",
     interiorImages: [
       "/Project 3 /IMG_4886.jpeg",
       "/Project 3 /IMG_4885.png",
@@ -192,7 +178,7 @@ const projectData: Project[] = [
     status: "Completed",
     heroImage: "/Project 4 /Screenshot 2026-09-16 at 9.55.00 PM.png",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "The Cottage House draws its character from a familiar domestic scale, reinterpreted through clean lines and measured transitions between rooms. Natural light, proportion, and a composed material language give the residence a relaxed presence, allowing everyday living to feel connected rather than compartmentalized.",
     interiorImages: [
       "/Project 4 /Screenshot 2026-09-16 at 9.52.55 PM.png",
       "/Project 4 /Screenshot 2026-09-16 at 9.55.00 PM.png",
@@ -228,7 +214,7 @@ const projectData: Project[] = [
     completion: "2022",
     heroImage: "/Project 5/Screenshot 2026-09-16 at 11.14.25 PM.webp",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "Villa Hacienda is organized around a sense of openness and retreat. Broad visual connections, warm interior layers, and a deliberate balance of solid and open elements give the home a grounded rhythm, allowing its larger volumes to remain inviting, personal, and closely tied to daily life.",
     interiorImages: [
       "/Project 5/Screenshot 2026-09-16 at 11.13.27 PM.png",
       "/Project 5/Screenshot 2026-09-16 at 11.13.19 PM.png",
@@ -258,7 +244,8 @@ const projectData: Project[] = [
     title: "Resort Halol",
     location: "Halol, Gujarat",
     heroImage: "/Project 6/ChatGPT Image Sep 15, 2026 at 03_33_36 PM.webp",
-    description: "",
+    description:
+      "Resort Halol is imagined as a hospitality landscape where movement, pause, and outlook shape the visitor’s experience. Its spaces shift between expansive views and more intimate rooms, using light, proportion, and a relaxed material rhythm to create an environment suited to escape and gathering.",
     interiorImages: [
       "/Project 6/ChatGPT Image Sep 15, 2026 at 03_31_18 PM.png",
       "/Project 6/ChatGPT Image Sep 15, 2026 at 03_31_29 PM.png",
@@ -281,7 +268,8 @@ const projectData: Project[] = [
     title: "Saanidhya Greens",
     location: "Hansapura, Vadodara",
     heroImage: "/Project 7/IMG_6060.webp",
-    description: "",
+    description:
+      "Saanidhya Greens approaches residential design through clarity, comfort, and a close reading of its setting. The project balances open shared areas with quieter private moments, using a measured sequence of spaces and natural light to create a home that feels settled, breathable, and easy to inhabit.",
     interiorImages: [
       "/Project 7/IMG_6060.webp",
       "/Project 7/IMG_6065.webp",
@@ -298,7 +286,7 @@ const projectData: Project[] = [
     location: "Sama, Vadodara",
     heroImage: "/Project 8/Screenshot 2026-09-16 at 11.59.43 PM.webp",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "Shah’s Residence is composed as a warm contemporary home, with rooms connected through visual continuity rather than rigid separation. Layered textures, controlled daylight, and carefully proportioned interiors establish a calm domestic atmosphere while giving each space its own degree of privacy and character.",
     interiorImages: [
       "/Project 8 /Screenshot 2026-09-16 at 11.59.08 PM.png",
       "/Project 8 /Screenshot 2026-09-16 at 11.59.43 PM.png",
@@ -330,7 +318,8 @@ const projectData: Project[] = [
     title: "Shah's Dream Home",
     location: "Suramya Altis, Vadodara",
     heroImage: "/Project 9/LR_MKGs-58.webp",
-    description: "",
+    description:
+      "Shah’s Dream Home is developed as a personal residential sequence, moving between generous shared spaces and quieter corners of retreat. The interiors rely on proportion, daylight, and a restrained layering of surfaces to create a home that feels polished yet lived-in, with comfort guiding the composition.",
     interiorImages: [
       "/Project 9/LR_MKGs-78.jpg",
       "/Project 9/LR_MKGs-77.jpg",
@@ -415,7 +404,8 @@ const projectData: Project[] = [
     title: "Bhoiwala's Residence",
     location: "",
     heroImage: "/Project 10/1.webp",
-    description: "",
+    description:
+      "Bhoiwala’s Residence is shaped around the practical rituals of family life, giving each room a clear role while maintaining a cohesive visual language. The design uses balanced proportions, considered transitions, and a calm material palette to make the home feel connected, welcoming, and enduring.",
     interiorImages: [
       "/Project 10/1.webp",
       "/Project 10/2.webp",
@@ -435,7 +425,8 @@ const projectData: Project[] = [
     location: "Vadodara",
     status: "Ongoing",
     heroImage: "/Project 11/IMG_4753.png",
-    description: "",
+    description:
+      "The Grid Residence takes its identity from order, repetition, and the disciplined framing of space. A clear architectural rhythm organizes the home, while shifts in scale and light prevent the structure from feeling rigid. The result is a residence that is precise, open, and distinctly contemporary.",
     interiorImages: [
       "/Project 11/IMG_4749.png",
       "/Project 11/IMG_4753.png",
@@ -456,7 +447,7 @@ const projectData: Project[] = [
     completion: "2022",
     heroImage: "/Project 12/Screenshot 2026-09-17 at 9.49.10 AM.webp",
     description:
-      "A retail space designed to immerse visitors in a world of curated experiences. Every detail—from the material palette to the lighting—has been crafted to elevate the shopping journey into something memorable.",
+      "Anhaya Store is designed as a composed retail environment where display, movement, and atmosphere work as one. The layout creates a sequence of focused encounters, supported by deliberate lighting and a refined material backdrop that lets the merchandise remain central while the space retains its own identity.",
     interiorImages: [
       "/Project 12/Screenshot 2026-09-17 at 9.47.00 AM.png",
       "/Project 12/Screenshot 2026-09-17 at 9.47.40 AM.png",
@@ -486,7 +477,7 @@ const projectData: Project[] = [
     location: "Vadodara",
     heroImage: "/Project 13/BPD_1156.webp",
     description:
-      "Rooted in the idea of openness, the residence dissolves boundaries between spaces through flowing forms, natural illumination, and carefully framed moments of connection. Warm minimalism, layered textures, and an abundance of daylight create a home that feels both serene and vibrant.",
+      "The Walnut Residence is organized around openness, daylight, and a fluid relationship between shared and private spaces. Warm textures soften the clean architectural lines, while framed connections and flowing transitions give the home a serene continuity without diminishing the individuality of its rooms.",
     interiorImages: [
       "/Project 13/BPD_0902 - Copy.webp",
       "/Project 13/BPD_0945.webp",
@@ -512,7 +503,7 @@ const projectData: Project[] = [
     status: "Completed",
     heroImage: "/Project 14/Screenshot 2026-09-16 at 10.09.52 PM.webp",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "The Floating Boxes gives residential space a strong sculptural identity through layered volumes and deliberate geometric contrast. Its composition creates moments of compression and release, allowing light, shadow, and movement to animate the interiors while a grounded palette keeps the experience comfortable and domestic.",
     interiorImages: [
       "/Project 14/Screenshot 2026-09-16 at 10.09.45 PM.webp",
       "/Project 14/Screenshot 2026-09-16 at 10.09.52 PM.webp",
@@ -550,7 +541,8 @@ const projectData: Project[] = [
     location: "Harni, Vadodara",
     status: "Ongoing",
     heroImage: "/Project 15/IMG_6295.webp",
-    description: "",
+    description:
+      "Ishaanti Group is conceived as a contemporary setting with a clear, confident architectural presence. The project brings together structured planning and approachable interiors, balancing formal clarity with spaces that support movement, interaction, and the changing needs of an active everyday environment.",
     interiorImages: [
       "/Project 15/IMG_6295.webp",
       "/Project 15/IMG_6296.webp",
@@ -570,7 +562,7 @@ const projectData: Project[] = [
     status: "Ongoing",
     heroImage: "/Project 16/40cc7527-beb5-448f-8fe0-36044e29fd9d.webp",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "The Courtyard Estate is centered on the courtyard as a quiet organizer of domestic life. The arrangement allows light, air, and views to filter through the home, creating a sequence of inward and outward moments where landscape, privacy, and family life remain closely connected.",
     interiorImages: [
       "/Project 16/40cc7527-beb5-448f-8fe0-36044e29fd9d.webp",
       "/Project 16/50ff5272-b0b8-4412-bf31-5a461466cedd.webp",
@@ -589,7 +581,7 @@ const projectData: Project[] = [
     location: "Vadodara",
     heroImage: "https://res.cloudinary.com/wkqz5bnk/image/upload/c_limit,w_3840/f_auto/q_auto/v1/biren-s-villa/image-2?_a=BAVT+ODY0",
     description:
-      "A distinctive residence shaped around light, scale, and the rhythm of everyday living. Generous volumes and carefully curated textures come together to create a home that feels both grounded and effortlessly elegant.",
+      "The Ivory House works with light, scale, and a restrained sense of material richness to create a composed residence. Generous rooms are balanced by intimate details and clear transitions, giving the home a calm presence that feels substantial without becoming formal or distant.",
     interiorImages: [
       "https://res.cloudinary.com/wkqz5bnk/image/upload/c_limit,w_1920/f_auto/q_auto/v1/biren-s-villa/image-2?_a=BAVT+ODY0",
       "https://res.cloudinary.com/wkqz5bnk/image/upload/c_limit,w_1920/f_auto/q_auto/v1/biren-s-villa/image-3?_a=BAVT+ODY0",
@@ -610,7 +602,7 @@ const projectData: Project[] = [
     location: "Vadodara",
     heroImage: "/Project 18/SRA_6663-Edit.webp",
     description:
-      "A space designed with intention and elegance, where every detail serves a purpose. The interplay of light, texture, and form creates an environment that feels both refined and deeply comfortable.",
+      "The Skyhigh Retreat is designed as a residence of outlook and elevation, where expansive views meet carefully contained interior moments. A measured palette, layered lighting, and generous proportions create a sense of retreat, allowing the architecture to feel open to its surroundings while remaining grounded and private.",
     interiorImages: [
       "/Project 18/SRA_6177-Edit.jpg",
       "/Project 18/SRA_6226-Edit.jpg",
@@ -677,7 +669,8 @@ const projectData: Project[] = [
     location: "Vadodara",
     status: "Ongoing",
     heroImage: "/Project 19/IMG_6313.webp",
-    description: "",
+    description:
+      "Tapas is shaped as a focused interior experience, using a compact sequence of spaces to establish atmosphere and movement. The project’s design language relies on contrast, proportion, and carefully directed light, creating an intimate setting whose character emerges through the relationship between enclosure and openness.",
     interiorImages: [
       "/Project 19/IMG_6313.webp",
       "/Project 19/IMG_6315.webp",

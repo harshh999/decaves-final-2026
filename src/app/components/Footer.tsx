@@ -98,7 +98,7 @@ export default function Footer() {
               mixBlendMode: "screen"
             }}
           >
-            DE'CAVES
+            DE&apos;CAVES
           </h2>
         </div>
       </div>
@@ -121,9 +121,11 @@ export default function Footer() {
           {/* Column 1 (Brand) */}
           <div className="footer-col flex flex-col items-start justify-start text-left w-full mb-[48px] md:mb-0">
             {/* Complete logo — single image, no borders, no wrappers */}
-            <img
+            <Image
               src="/footer-logo-transparent.png"
               alt="DE'CAVES"
+              width={165}
+              height={140}
               style={{
                 width: "165px",
                 height: "auto",
@@ -232,7 +234,7 @@ export default function Footer() {
             borderTop: "1px solid rgba(255,255,255,0.18)",
           }}
         >
-          <span>&copy; 2026 DE'CAVES. ALL RIGHTS RESERVED.</span>
+          <span>&copy; 2026 DE&apos;CAVES. ALL RIGHTS RESERVED.</span>
           <span className="font-semibold uppercase tracking-[0.1em] text-[#C7C9C7]">ARCHITECTURE &amp; INTERIORS</span>
         </div>
 

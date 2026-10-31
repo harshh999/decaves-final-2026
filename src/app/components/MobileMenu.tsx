@@ -47,7 +47,7 @@ export default function MobileMenu({
         <div className="flex justify-end">
           <button
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-brown/30 text-brown-deep transition-colors hover:border-brown hover:bg-tan-light"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-brown/30 text-brown-deep transition-colors hover:border-brown hover:bg-tan-light"
             aria-label="Close menu"
           >
             <X className="h-5 w-5" />

@@ -13,7 +13,7 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    const lenis = (window as any).__lenis;
+    const lenis = window.__lenis;
     if (lenis) {
       lenis.scrollTo(0, { duration: 0.8 });
     } else {

@@ -3,9 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CloudinaryImage from "./CloudinaryImage";
 import Image from "next/image";
-import { siteImage } from "@/data/images";
 
 export default function About() {
   const [hovered, setHovered] = useState(false);

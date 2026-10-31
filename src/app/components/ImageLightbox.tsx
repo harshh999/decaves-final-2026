@@ -25,20 +25,27 @@ export default function ImageLightbox({
   onSelect,
 }: Props) {
   const thumbRef = useRef<HTMLDivElement>(null);
+  const activeIndex = Math.min(Math.max(currentIndex, 0), Math.max(images.length - 1, 0));
 
   useEffect(() => {
     const el = thumbRef.current;
     if (el) {
-      const child = el.children[currentIndex] as HTMLElement;
+      const child = el.children[activeIndex] as HTMLElement;
       child?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
-  }, [currentIndex]);
+  }, [activeIndex]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowLeft") onPrev();
-      if (e.key === "ArrowRight") onNext();
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        onPrev();
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        onNext();
+      }
     };
     document.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
@@ -113,7 +120,7 @@ export default function ImageLightbox({
           <div
             className="flex"
             style={{
-              transform: `translate3d(-${currentIndex * MAIN_W}px, 0, 0)`,
+              transform: `translate3d(-${activeIndex * MAIN_W}px, 0, 0)`,
               transition: "transform 850ms cubic-bezier(0.4, 0, 0.2, 1)",
             }}
           >
@@ -123,25 +130,14 @@ export default function ImageLightbox({
                 className="project-image-frame flex flex-shrink-0 items-center justify-center"
                 style={{ width: MAIN_W, height: 492 }}
               >
-                {(src.startsWith("http") || src.startsWith("/")) ? (
-                  <img
-                    src={src}
-                    alt=""
-                    width={MAIN_W}
-                    height={492}
-                    className="max-h-full max-w-full object-contain"
-                    loading={i === currentIndex || i === currentIndex + 1 || i === currentIndex - 1 ? "eager" : "lazy"}
-                  />
-                ) : (
-                  <CloudinaryImage
-                    src={src}
-                    alt=""
-                    width={MAIN_W}
-                    height={492}
-                    className="max-h-full max-w-full object-contain"
-                    loading={i === currentIndex || i === currentIndex + 1 || i === currentIndex - 1 ? "eager" : "lazy"}
-                  />
-                )}
+                <CloudinaryImage
+                  src={src}
+                  alt=""
+                  width={MAIN_W}
+                  height={492}
+                  className="max-h-full max-w-full object-contain"
+                  loading={i === activeIndex || i === activeIndex + 1 || i === activeIndex - 1 ? "eager" : "lazy"}
+                />
               </div>
             ))}
           </div>
@@ -159,25 +155,15 @@ export default function ImageLightbox({
             key={i}
             onClick={() => onSelect(i)}
             aria-label={`View image ${i + 1}`}
-            className="flex-shrink-0 overflow-hidden rounded border-2 transition-all duration-200 cursor-pointer focus:outline-none"
-            style={{
-              width: THUMB_W,
-              height: THUMB_H,
-              borderColor: i === currentIndex ? "#fff" : "transparent",
-              opacity: i === currentIndex ? 1 : 0.5,
-            }}
-            onMouseEnter={(e) => {
-              if (i !== currentIndex) e.currentTarget.style.opacity = "0.8";
-            }}
-            onMouseLeave={(e) => {
-              if (i !== currentIndex) e.currentTarget.style.opacity = "0.5";
-            }}
+            aria-current={i === activeIndex ? "true" : undefined}
+            className={`flex-shrink-0 overflow-hidden rounded border-2 transition-[opacity,transform,border-color] duration-200 ease-out cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+              i === activeIndex
+                ? "scale-[1.04] border-white opacity-100"
+                : "scale-100 border-transparent opacity-[0.55] hover:opacity-80"
+            }`}
+            style={{ width: THUMB_W, height: THUMB_H }}
           >
-            {(src.startsWith("http") || src.startsWith("/")) ? (
-              <img src={src} alt="" width={THUMB_W} height={THUMB_H} className="h-full w-full object-cover" />
-            ) : (
-              <CloudinaryImage src={src} alt="" width={THUMB_W} height={THUMB_H} className="h-full w-full object-cover" />
-            )}
+            <CloudinaryImage src={src} alt="" width={THUMB_W} height={THUMB_H} className="h-full w-full object-cover" />
           </button>
         ))}
       </div>

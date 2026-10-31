@@ -25,11 +25,10 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       duration: 1.2,
       wheelMultiplier: 0.85,
       touchMultiplier: 1,
-      // @ts-ignore - Some lenis types may not include smoothWheel directly based on version, but it's safe
       smoothWheel: true,
     });
     lenisRef.current = lenis;
-    (window as any).__lenis = lenis;
+    window.__lenis = lenis;
 
     // Sync Lenis scroll with ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
@@ -49,14 +48,14 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       // Cleanup on unmount
       gsap.ticker.remove(updateRaf);
       lenis.destroy();
-      (window as any).__lenis = null;
+      window.__lenis = undefined;
     };
   }, []);
 
   // Handle route change scroll to top
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const lenis = lenisRef.current || (window as any).__lenis;
+    const lenis = lenisRef.current || window.__lenis;
     if (lenis) {
       lenis.scrollTo(0, { immediate: true });
     } else {

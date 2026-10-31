@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 
 const images = [
@@ -206,10 +207,14 @@ function BackgroundSlideshow() {
             i === current ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
+          <Image
             src={src}
             alt=""
+            fill
             className="h-full w-full object-cover"
+            sizes="100vw"
+            unoptimized
+            loader={({ src: imageSrc }) => imageSrc}
             style={{
               transform: i === current ? "scale(1.03)" : "scale(1.0)",
               filter: "brightness(0.92) contrast(0.96) saturate(0.94)",

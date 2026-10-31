@@ -5,7 +5,6 @@ import { Check } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CloudinaryImage from "./CloudinaryImage";
-import { siteImage } from "@/data/images";
 
 const inputClasses =
   "w-full rounded-lg border border-[#E0D9CD] bg-[#FAF8F5] px-4 py-4 text-[14px] text-text-primary outline-none transition-all duration-300 placeholder:text-text-muted/35 hover:border-black/20 focus:border-brown focus:bg-white";
@@ -148,7 +147,7 @@ Thank you.`;
           <div className="flex flex-col justify-between overflow-hidden rounded-[28px] bg-[#171310] p-8 text-cream md:rounded-[32px] md:p-10 h-full">
             <div>
               <span className="mb-2.5 block text-[10px] font-semibold uppercase tracking-[0.25em] text-[#FAF8F5]/40">
-                DE'CAVES PHILOSOPHY
+                DE&apos;CAVES PHILOSOPHY
               </span>
               <h3 className="font-serif text-[22px] font-medium tracking-tight text-white uppercase">Our Commitment</h3>
               <p className="mt-4 max-w-[420px] text-[14px] font-light leading-relaxed tracking-wide text-[#FAF8F5]/60">

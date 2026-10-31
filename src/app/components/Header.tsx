@@ -4,8 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import CloudinaryImage from "./CloudinaryImage";
-import { siteImage } from "@/data/images";
 import gsap from "gsap";
 
 const navLinks = [
@@ -93,11 +91,14 @@ export default function Header() {
 
   useEffect(() => {
     const targetIndex = hoveredIndex !== null ? hoveredIndex : (activeIndex !== -1 ? activeIndex : null);
-    if (targetIndex !== null) {
-      updatePillPosition(targetIndex);
-    } else {
-      setPillStyle((prev) => ({ ...prev, opacity: 0 }));
-    }
+    const frame = requestAnimationFrame(() => {
+      if (targetIndex !== null) {
+        updatePillPosition(targetIndex);
+      } else {
+        setPillStyle((prev) => ({ ...prev, opacity: 0 }));
+      }
+    });
+    return () => cancelAnimationFrame(frame);
   }, [hoveredIndex, activeIndex]);
 
   // Handle window resizing to keep pill correctly aligned
@@ -126,14 +127,14 @@ export default function Header() {
 
     if (pathname === "/") {
       e.preventDefault();
-      const lenis = (window as any).__lenis;
+      const lenis = window.__lenis;
       if (lenis) {
         lenis.scrollTo(0, { duration: 0.45, immediate: false });
       } else {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     } else {
-      const lenis = (window as any).__lenis;
+      const lenis = window.__lenis;
       if (lenis) {
         lenis.scrollTo(0, { immediate: true });
       } else {
@@ -231,7 +232,8 @@ export default function Header() {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="inline-block rounded-full border border-black/20 bg-transparent px-4 py-2 text-[12px] font-medium tracking-[0.1em] text-[#171717] uppercase transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] active:scale-[0.95]"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-black/20 bg-transparent px-4 py-2 text-[12px] font-medium tracking-[0.1em] text-[#171717] uppercase transition-all duration-[400ms] ease-[cubic-bezier(0.25,1,0.5,1)] active:scale-[0.95]"
+              aria-label="Open menu"
             >
               MENU
             </button>

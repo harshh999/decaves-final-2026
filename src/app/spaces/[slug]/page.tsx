@@ -41,7 +41,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <h1 className="font-display text-center text-5xl text-brown-deep md:text-7xl">
               {project.title}
             </h1>
-            <div className="mx-auto mt-10 flex w-full flex-wrap justify-center border-t-2 border-brown/20 pt-8 md:mt-14 md:pt-10">
+            <div className="mx-auto mt-10 flex w-full max-w-[900px] flex-wrap justify-center border-t-2 border-brown/20 pt-8 md:mt-14 md:pt-10">
               {project.location && (
                 <div className="w-1/2 px-4 py-3 text-center md:w-1/4 md:py-0">
                   <p className="mb-1 text-xs font-medium tracking-wider text-black/80 uppercase md:text-sm">Location</p>
@@ -64,23 +64,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
 
-        <div className="project-image-frame relative w-full aspect-[4/3] md:aspect-[16/9] md:max-h-[85vh]">
-          {(project.heroImage.startsWith("http") || project.heroImage.startsWith("/")) ? (
-            <img
-              src={project.heroImage}
-              alt={project.title}
-              className="absolute inset-0 h-full w-full object-cover object-center"
-            />
-          ) : (
-            <CloudinaryImage
-              src={project.heroImage}
-              alt={project.title}
-              fill
-              sizes="100vw"
-              priority
-              className="h-full w-full object-cover object-center"
-            />
-          )}
+        <div className="project-image-frame project-hero-frame relative mx-auto mb-8 aspect-[4/3] w-[calc(100%-32px)] max-w-none md:mb-10 md:aspect-[16/9] md:w-[calc(100%-64px)] md:max-w-[1100px] lg:mb-16">
+          <CloudinaryImage
+            src={project.heroImage}
+            alt={project.title}
+            fill
+            sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1199px) calc(100vw - 64px), 1100px"
+            priority
+            className="h-full w-full object-cover object-center"
+          />
         </div>
 
         <section className="w-full overflow-hidden bg-tan-light/30 pt-20 pb-24 md:pt-28 md:pb-16">
@@ -95,21 +87,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 </p>
               </div>
               <div className="project-image-frame relative aspect-[16/9] w-full shrink-0 md:w-[50%] lg:w-[50%]">
-                {(visionImage.startsWith("http") || visionImage.startsWith("/")) ? (
-                  <img
-                    src={visionImage}
-                    alt=""
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                ) : (
-                  <CloudinaryImage
-                    src={visionImage}
-                    alt=""
-                    fill
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                    className="h-full w-full object-cover"
-                  />
-                )}
+                <CloudinaryImage
+                  src={visionImage}
+                  alt=""
+                  fill
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
             <hr className="mt-10 h-px w-full border-0 bg-brown/10 md:mt-14" />

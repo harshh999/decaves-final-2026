@@ -34,6 +34,7 @@ body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 .project-image-frame {
@@ -41,15 +42,27 @@ body {
   border-radius: 12px;
 }
 
+.project-hero-frame {
+  border-radius: 8px;
+}
+
 @media (min-width: 768px) {
   .project-image-frame {
     border-radius: 14px;
+  }
+
+  .project-hero-frame {
+    border-radius: 12px;
   }
 }
 
 @media (min-width: 1024px) {
   .project-image-frame {
     border-radius: 16px;
+  }
+
+  .project-hero-frame {
+    border-radius: 12px;
   }
 }
 
@@ -144,14 +157,24 @@ html {
 
 /* Our Process — Scroll-driven drafting section */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
   #process-section,
   #process-section * {
     transition: none !important;
     animation: none !important;
   }
 }
-
-
-
 
 

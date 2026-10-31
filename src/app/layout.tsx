@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import { cldUrl } from "@/data/images";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",

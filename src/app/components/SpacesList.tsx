@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Project } from "@/data/projects";
-import CloudinaryImage from "./CloudinaryImage";
 import NonHeroProjectImage from "./NonHeroProjectImage";
 
 export default function SpacesList({ projects }: { projects: Project[] }) {

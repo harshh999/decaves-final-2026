@@ -11,6 +11,14 @@ export function siteImage(localPath: string) {
   return toPublicId(localPath);
 }
 
+export function publicAssetUrl(src: string) {
+  if (!src.startsWith("/")) return src;
+  return src
+    .split("/")
+    .map((segment) => encodeURIComponent(segment))
+    .join("/");
+}
+
 export function cldUrl(localPath: string) {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "diqslwugu";
   return `https://res.cloudinary.com/${cloudName}/image/upload/${toPublicId(localPath)}`;

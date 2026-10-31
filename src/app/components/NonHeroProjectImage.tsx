@@ -31,25 +31,15 @@ export default function NonHeroProjectImage({
         transform: "translateZ(0)",
       }}
     >
-      {(src.startsWith("http") || src.startsWith("/")) ? (
-        <img
-          src={src}
-          alt={alt}
-          className={`w-full h-full object-cover object-center rounded-[16px] ${imageClassName}`}
-          style={{ borderRadius: "16px" }}
-          loading={priority ? "eager" : "lazy"}
-        />
-      ) : (
-        <CloudinaryImage
-          src={src}
-          alt={alt}
-          fill={fill}
-          priority={priority}
-          sizes={sizes}
-          className={`w-full h-full object-cover object-center rounded-[16px] ${imageClassName}`}
-          style={{ borderRadius: "16px" }}
-        />
-      )}
+      <CloudinaryImage
+        src={src}
+        alt={alt}
+        fill={fill}
+        priority={priority}
+        sizes={sizes}
+        className={`w-full h-full object-cover object-center rounded-[16px] ${imageClassName}`}
+        style={{ borderRadius: "16px" }}
+      />
     </div>
   );
 }
