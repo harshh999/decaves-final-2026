@@ -22,7 +22,7 @@ export interface Project {
 const projectData: Project[] = [
 // 01. Tathastu, Woods Ville (Existing)
   {
-    slug: "tathastu-woods-ville",
+    slug: "tathastu",
     title: "Tathastu",
     location: "Woods Ville, Vadodara",
     completion: "2025",
@@ -73,7 +73,7 @@ const projectData: Project[] = [
 
   // 02. The Hanging Pyramids (Existing)
   {
-    slug: "our-project-p2",
+    slug: "the-hanging-pyramids",
     title: "The Hanging Pyramids",
     location: "Woods Ville, Vadodara",
     completion: "2025",
@@ -171,7 +171,7 @@ const projectData: Project[] = [
 
   // 04. The Cottage House
   {
-    slug: "cottage-house",
+    slug: "the-cottage-house",
     title: "The Cottage House",
     location: "",
     completion: "2025",
@@ -208,7 +208,7 @@ const projectData: Project[] = [
 
   // 05. Villa Hacienda (Existing)
   {
-    slug: "our-project-p3",
+    slug: "villa-hacienda",
     title: "Villa Hacienda",
     location: "Sherkhi, Vadodara",
     completion: "2022",
@@ -281,7 +281,7 @@ const projectData: Project[] = [
   },
 
   {
-    slug: "sama-residence",
+    slug: "shahs-residence",
     title: "Shah's Residence",
     location: "Sama, Vadodara",
     heroImage: "/Project 8/Screenshot 2026-09-16 at 11.59.43 PM.webp",
@@ -400,7 +400,7 @@ const projectData: Project[] = [
 
   // 10. Bhoiwala's Residence
   {
-    slug: "bhoiwala",
+    slug: "bhoiwalas-residence",
     title: "Bhoiwala's Residence",
     location: "",
     heroImage: "/Project 10/1.webp",
@@ -441,7 +441,7 @@ const projectData: Project[] = [
 
   // 11. Anhaya Store (Existing)
   {
-    slug: "anhaya-store-kolhapur",
+    slug: "anhaya-store",
     title: "Anhaya Store",
     location: "Kolhapur",
     completion: "2022",
@@ -472,7 +472,7 @@ const projectData: Project[] = [
 
   // 13. The Walnut Residence (Existing)
   {
-    slug: "ankur-bhai",
+    slug: "the-walnut-residence",
     title: "The Walnut Residence",
     location: "Vadodara",
     heroImage: "/Project 13/BPD_1156.webp",
@@ -496,7 +496,7 @@ const projectData: Project[] = [
 
   // 14. The Floating Boxes (Existing)
   {
-    slug: "our-project-p1",
+    slug: "the-floating-boxes",
     title: "The Floating Boxes",
     location: "Vemali, Vadodara",
     completion: "2020",
@@ -536,7 +536,7 @@ const projectData: Project[] = [
 
   // 15. Ishaanti
   {
-    slug: "ishaanti",
+    slug: "ishaanti-group",
     title: "Ishaanti Group",
     location: "Harni, Vadodara",
     status: "Ongoing",
@@ -556,7 +556,7 @@ const projectData: Project[] = [
 
   // 16. The Courtyard Estate (Existing)
   {
-    slug: "kolhapur",
+    slug: "the-courtyard-estate",
     title: "The Courtyard Estate",
     location: "Kolhapur",
     status: "Ongoing",
@@ -576,7 +576,7 @@ const projectData: Project[] = [
 
   // 16. The Ivory House (Existing)
   {
-    slug: "birens-villa",
+    slug: "the-ivory-house",
     title: "The Ivory House",
     location: "Vadodara",
     heroImage: "https://res.cloudinary.com/wkqz5bnk/image/upload/c_limit,w_3840/f_auto/q_auto/v1/biren-s-villa/image-2?_a=BAVT+ODY0",
@@ -597,7 +597,7 @@ const projectData: Project[] = [
 
   // 17. The Skyhigh Retreat (Existing)
   {
-    slug: "our-project-p4",
+    slug: "the-skyhigh-retreat",
     title: "The Skyhigh Retreat",
     location: "Vadodara",
     heroImage: "/Project 18/SRA_6663-Edit.webp",

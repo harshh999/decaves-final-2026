@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const shahsResidenceBlock = `
   {
-    slug: "sama-residence",
+    slug: "shahs-residence",
     title: "Shah's Residence",
     location: "Sama, Vadodara",
     heroImage: "https://res.cloudinary.com/diqslwugu/image/upload/v1789583519/Screenshot_2026-09-16_at_11.59.57_PM_lnoje5.png",

@@ -14,7 +14,7 @@ const projects = [
     location: "Woods Ville, Vadodara",
     year: "2025",
     image: "/Project 2/Screenshot 2026-09-17 at 11.37.35 AM.webp",
-    href: "/spaces/our-project-p2",
+    href: "/spaces/the-hanging-pyramids",
   },
   {
     number: "02",
@@ -22,7 +22,7 @@ const projects = [
     location: "Woods Ville, Vadodara",
     year: "2025",
     image: "/Project 1/Screenshot 2026-09-16 at 9.06.45 PM.webp",
-    href: "/spaces/tathastu-woods-ville",
+    href: "/spaces/tathastu",
   },
   {
     number: "03",
@@ -30,7 +30,7 @@ const projects = [
     location: "",
     year: "2025",
     image: "/Project 4/Screenshot 2026-09-16 at 9.55.00 PM.webp",
-    href: "/spaces/cottage-house",
+    href: "/spaces/the-cottage-house",
   },
   {
     number: "04",
@@ -38,7 +38,7 @@ const projects = [
     location: "Sherkhi, Vadodara",
     year: "2022",
     image: "/Project 5/Screenshot 2026-09-16 at 11.14.25 PM.webp",
-    href: "/spaces/our-project-p3",
+    href: "/spaces/villa-hacienda",
   }
 ];
 

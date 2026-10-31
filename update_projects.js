@@ -7,9 +7,9 @@ let content = fs.readFileSync(filePath, 'utf8');
 // 1. Reorder p1, p2, p3 so they are first in the array.
 // The array currently starts with p2, p3, p1.
 // Let's just find their blocks and rearrange them.
-const p1Match = content.match(/\{\s*slug:\s*"our-project-p1"[\s\S]*?curations:\s*\[\],\s*\}/);
-const p2Match = content.match(/\{\s*slug:\s*"our-project-p2"[\s\S]*?curations:\s*\[\],\s*\}/);
-const p3Match = content.match(/\{\s*slug:\s*"our-project-p3"[\s\S]*?curations:\s*\[\],\s*\}/);
+const p1Match = content.match(/\{\s*slug:\s*"the-floating-boxes"[\s\S]*?curations:\s*\[\],\s*\}/);
+const p2Match = content.match(/\{\s*slug:\s*"the-hanging-pyramids"[\s\S]*?curations:\s*\[\],\s*\}/);
+const p3Match = content.match(/\{\s*slug:\s*"villa-hacienda"[\s\S]*?curations:\s*\[\],\s*\}/);
 
 if (p1Match && p2Match && p3Match) {
   // Remove them from content
@@ -25,14 +25,14 @@ if (p1Match && p2Match && p3Match) {
 
 // 2. Update p4: title: "The Skyhigh Retreat", location: "Vadodara"
 content = content.replace(
-  /slug:\s*"our-project-p4",\s*title:\s*"Project Four",\s*location:\s*"India",/,
-  `slug: "our-project-p4",\n    title: "The Skyhigh Retreat",\n    location: "Vadodara",`
+  /slug:\s*"the-skyhigh-retreat",\s*title:\s*"Project Four",\s*location:\s*"India",/,
+  `slug: "the-skyhigh-retreat",\n    title: "The Skyhigh Retreat",\n    location: "Vadodara",`
 );
 
-// 3. Update sama-residence: title: "Shah's Residence", location: "Sama, Vadodara"
+// 3. Update shahs-residence: title: "Shah's Residence", location: "Sama, Vadodara"
 content = content.replace(
-  /slug:\s*"sama-residence",\s*title:\s*"Sama Residence",\s*location:\s*"India",/,
-  `slug: "sama-residence",\n    title: "Shah's Residence",\n    location: "Sama, Vadodara",`
+  /slug:\s*"shahs-residence",\s*title:\s*"Sama Residence",\s*location:\s*"India",/,
+  `slug: "shahs-residence",\n    title: "Shah's Residence",\n    location: "Sama, Vadodara",`
 );
 
 // 4. Update unknown: title: "The Grid Residence", location: "Vadodara"
@@ -47,18 +47,18 @@ if (karelibaugMatch) {
   content = content.replace(karelibaugMatch[0], '');
 }
 
-// 6. Update kolhapur: title: "The Courtyard Estate", location: "Kolhapur"
+// 6. Update the-courtyard-estate: title: "The Courtyard Estate", location: "Kolhapur"
 // (currently title: "Kolhapur", location: "India")
 content = content.replace(
-  /slug:\s*"kolhapur",\s*title:\s*"Kolhapur",\s*location:\s*"India",/,
-  `slug: "kolhapur",\n    title: "The Courtyard Estate",\n    location: "Kolhapur",`
+  /slug:\s*"the-courtyard-estate",\s*title:\s*"Kolhapur",\s*location:\s*"India",/,
+  `slug: "the-courtyard-estate",\n    title: "The Courtyard Estate",\n    location: "Kolhapur",`
 );
 
-// 7. Update anhaya-store-kolhapur: title: "Anhaya Store", location: "Kolhapur"
+// 7. Update anhaya-store: title: "Anhaya Store", location: "Kolhapur"
 // (currently title: "Casa Sutra", location: "Kolhapur, Maharashtra")
 content = content.replace(
-  /slug:\s*"anhaya-store-kolhapur",\s*title:\s*"Casa Sutra",\s*location:\s*"Kolhapur, Maharashtra",/,
-  `slug: "anhaya-store-kolhapur",\n    title: "Anhaya Store, Kolhapur",\n    location: "Kolhapur",`
+  /slug:\s*"anhaya-store",\s*title:\s*"Casa Sutra",\s*location:\s*"Kolhapur, Maharashtra",/,
+  `slug: "anhaya-store",\n    title: "Anhaya Store, Kolhapur",\n    location: "Kolhapur",`
 );
 
 fs.writeFileSync(filePath, content);

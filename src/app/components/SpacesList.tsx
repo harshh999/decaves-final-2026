@@ -170,8 +170,8 @@ export default function SpacesList({ projects }: { projects: Project[] }) {
 function getProjectCategoryAndYear(project: Project) {
   const meta: Record<string, string> = {
     "spinal-stone": "Residential",
-    "ankur-bhai": "Residential",
-    "anhaya-store-kolhapur": "Retail",
+    "the-walnut-residence": "Residential",
+    "anhaya-store": "Retail",
     "suramya-altis": "Residential",
     "colortek-bhayli": "Commercial",
     "panchal-residence-sama": "Residential",
