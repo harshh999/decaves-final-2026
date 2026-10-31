@@ -158,13 +158,14 @@ Thank you.`;
             <div className="mt-12">
               <div className="group relative overflow-hidden rounded-[16px] md:rounded-[20px]">
                 <CloudinaryImage
-                  src="https://res.cloudinary.com/diqslwugu/image/upload/v1789582802/Screenshot_2026-09-16_at_11.12.24_PM_uc1ldq.png"
-                  alt="De'Caves designed residence"
+                  src="/Project 2/Screenshot 2026-09-17 at 11.41.15 AM.webp"
+                  alt="De'Caves architectural project"
                   width={1200}
                   height={800}
                   className="h-[280px] w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.05] md:h-[360px]"
                   loading="lazy"
                   style={{
+                    objectPosition: "center center",
                     filter: "brightness(0.85) contrast(1.02) sepia(0.08)"
                   }}
                 />

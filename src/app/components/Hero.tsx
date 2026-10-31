@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import gsap from "gsap";
+import { publicAssetUrl } from "@/data/images";
 
 const images = [
-  "https://res.cloudinary.com/diqslwugu/image/upload/v1787251347/th1_ds5o3z.webp",
-  "https://res.cloudinary.com/diqslwugu/image/upload/v1789573484/Screenshot_2026-09-16_at_9.05.49_PM_izrwlh.png",
-  "https://res.cloudinary.com/diqslwugu/image/upload/v1789621863/Screenshot_2026-09-17_at_10.38.01_AM_pteyil.png",
-  "https://res.cloudinary.com/diqslwugu/image/upload/v1789625768/Screenshot_2026-09-17_at_11.38.45_AM_cszabf.png"
+  "/HeroImages/Screenshot 2026-09-17 at 11.41.58 AM.png",
+  "/HeroImages/Screenshot 2026-09-16 at 9.52.35 PM.png",
+  "/HeroImages/Screenshot 2026-09-16 at 9.05.49 PM.png",
 ];
 
 export default function Hero() {
@@ -189,32 +189,38 @@ export default function Hero() {
 }
 
 function BackgroundSlideshow() {
+  const [orderedImages, setOrderedImages] = useState(images);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
+    const shuffleFrame = requestAnimationFrame(() => {
+      setOrderedImages([...images].sort(() => Math.random() - 0.5));
+    });
+
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+      setCurrent((prev) => (prev + 1) % orderedImages.length);
+    }, 3000);
+    return () => {
+      cancelAnimationFrame(shuffleFrame);
+      clearInterval(interval);
+    };
+  }, [orderedImages.length]);
 
   return (
     <>
-      {images.map((src, i) => (
+      {orderedImages.map((src, i) => (
         <div
           key={src}
-          className={`absolute inset-0 transition-opacity duration-[2500ms] ease-in-out ${
+          className={`absolute inset-0 transition-opacity duration-[2600ms] ease-in-out ${
             i === current ? "opacity-100" : "opacity-0"
           }`}
         >
           <Image
-            src={src}
+            src={publicAssetUrl(src)}
             alt=""
             fill
             className="h-full w-full object-cover"
             sizes="100vw"
-            unoptimized
-            loader={({ src: imageSrc }) => imageSrc}
             style={{
               transform: i === current ? "scale(1.03)" : "scale(1.0)",
               filter: "brightness(0.92) contrast(0.96) saturate(0.94)",
